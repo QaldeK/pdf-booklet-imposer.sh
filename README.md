@@ -5,10 +5,9 @@ pdf-booklet-imposer -- Gui-Script to achieve some imposition on PDF documents :
 generate A5 and A6 pdf booklet from A4 page by page document, and 
 separate A5/A6 cover and text-only (without cover) pdf.
 
-
 ## Dependances :
 This script use [zenity](https://gitlab.gnome.org/GNOME/zenity), 
-[bookletimposer](https://github.com/con-f-use/bookletimposer)(Kjö Hansi Glaz) and [pdftk](https://github.com/mikehaertl/php-pdftk). 
+[bookletimposer](https://github.com/con-f-use/bookletimposer)and [pdftk](https://github.com/mikehaertl/php-pdftk). 
 You have to install them for use this script. 
 
 ## Usage :
@@ -22,7 +21,7 @@ script on gnome) for quick acces by right clic on the pdf.
 	> Appearence Condition > File pattern : *.pdf *.PDF /
 	Appears if selection contains : other files
 
-Or add this lines (without "#") in ~/.config/Thunar/uca.xml
+Or add this lines in ~/.config/Thunar/uca.xml
 
 	<action>
 		<icon>bookletimposer</icon>
