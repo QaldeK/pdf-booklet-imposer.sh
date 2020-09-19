@@ -12,10 +12,10 @@ This script use [zenity](https://gitlab.gnome.org/GNOME/zenity),
 You have to install them for use this script. 
 
 ## Usage :
-*make executable * : 
+**make executable** : 
 "sudo chmod +x <path/to/the/script/pdf-booklet-imposer.sh>
 
-*execute :*
+**execute :**
 <path/to/the/script/pdf-booklet-imposer.sh> <path/to/the/file.pdf>
 
 You can also configure a thunar custom action (on Xfce, or nautilus 
