@@ -1,0 +1,55 @@
+#!/bin/bash
+
+########################################################################
+# 
+# A5A6-BOOKLET - Script to achieve some imposition on PDF documents : 
+# generate A5 and A6 pdf booklet from A4 page by page document, and 
+# separate A5/A6 cover and text-only (without cover) pdf.
+
+# Dependances :
+# This script use bookletimposer (Kjö Hansi Glaz) and pdftk. You have to 
+# install them for use this script. 
+
+######################################################################## 
+# Copyright (C) QaldeK (aldek@vivaldi.net)
+# 
+# This program is  free software; you can redistribute  it and/or modify
+# it under the  terms of the GNU General Public  License as published by
+# the Free Software Foundation; either  version 3 of the License, or (at
+# your option) any later version.
+# 
+# This program  is distributed in the  hope that it will  be useful, but
+# WITHOUT   ANY  WARRANTY;   without  even   the  implied   warranty  of
+# MERCHANTABILITY  or FITNESS  FOR A  PARTICULAR PURPOSE.   See  the GNU
+# General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+########################################################################
+
+file="$1"
+basename=${file%.pdf}
+
+echo $basename
+
+A5="$basename""_A5.pdf"
+A6="$basename""_A6.pdf"
+
+echo odt to pdf _________
+unoconv $file
+
+echo generate $A5 _________
+bookletimposer "$1" -a -b -f A4 -k -o "$A5"
+echo generate $A6 _________
+bookletimposer "$A5" -a -f A4 -n -p 1x2 -k -c -o "$A6"
+
+echo generate $A5 coverage _________
+pdftk A="$A5" cat A1 A2 output "${A5%.pdf}""_COUV.pdf"
+echo generate $A6 coverage _________
+pdftk A="$A6" cat A1 A2 output "${A6%.pdf}""_COUV.pdf"
+
+echo generate $A5 text-only _________
+pdftk A="$A5" cat A3-end output "${A5%.pdf}""_TXT.pdf"
+echo generate $A6 text-only _________
+pdftk A="$A6" cat A3-end output "${A6%.pdf}""_TXT.pdf"
