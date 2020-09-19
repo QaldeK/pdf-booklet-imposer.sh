@@ -29,7 +29,7 @@ Or add this lines in ~/.config/Thunar/uca.xml
 		<unique-id>1600521438161521-1</unique-id>
 		<command>/path/to/script/pdf-booklet-imposer.sh %f</command>
 		<description></description>
-		<patterns>*.pdf *.PDF</patterns>
+		<patterns>*.pdf;*.PDF</patterns>
 		<other-files/>
 	</action>
   
