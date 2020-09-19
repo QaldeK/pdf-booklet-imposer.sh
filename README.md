@@ -2,7 +2,7 @@
 Bash script for create A5 and A6 pdf booklet (with GUI)
 
 pdf-booklet-imposer -- Gui-Script to achieve some imposition on PDF documents : 
-generate A5 and A6 pdf booklet from A4 page by page document, and 
+generate A5 and A6 pdf booklet from A4 page by page document, and/or 
 separate A5/A6 cover and text-only (without cover) pdf.
 
 ## Dependances :
